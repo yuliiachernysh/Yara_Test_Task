@@ -1,0 +1,14 @@
+{
+    "name": "Yara_Test_Task",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+      "cy:open:web": "cypress open --e2e --browser=chrome --env device=web",
+      "cy:run:web": "cypress run --env device=web"
+    },
+    "devDependencies": {
+      "cypress": "^12.17.2",
+      "eslint": "^8.45.0"
+    }
+}
+  

@@ -9,6 +9,16 @@ module.exports = defineConfig({
     device: "web"
   },
 
+  reporter: "cypress-mochawesome-reporter",
+  reporterOptions: {
+      reportDir: "cypress/reports",
+      charts: true,
+      reportPageTitle: "My Test Suite",
+      embeddedScreenshots: true,
+      inlineAssets: true
+    },
+  video: false,
+
   retries: {
     runMode: 1,
     openMode: 0,

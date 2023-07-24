@@ -10,9 +10,12 @@ function setViewPortsAndUserAgent(device) {
     throw new Error('device not supported - [please set device to mob or web]')
 }
 module.exports = (on, config) => {
-    const viewportConfig = setViewPortsAndUserAgent(config.env.device)
+    const viewportConfig = setViewPortsAndUserAgent(config.env.device);
 
-    config = Object.assign({}, viewportConfig)
+    config = Object.assign({}, viewportConfig);
 
-    return config
+    require('cypress-mochawesome-reporter/plugin')(on);
+
+    return config;
 }
+

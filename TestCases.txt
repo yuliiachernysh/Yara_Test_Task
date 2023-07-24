@@ -1,0 +1,133 @@
+Login test cases:
+Success
+1. Login with valid email/password. Steps:
+- go to login url
+- enter valid email
+- enter valid password
+- press "Login" button
+Expected result:
+User loged in. Username displayed in the header
+
+Unsuccessful:
+1. Login with invalid email/password. Steps:
+- go to login url
+- enter random (invalid) email
+- enter random (invalid) password
+- press "Login" button
+Expected result:
+Error message contains 'email/password is invalid'
+
+2. Login with empty username. Steps:
+- go to login url
+- DON`T enter email
+- enter random (invalid) password
+- press "Login" button
+Expected result:
+Error message contains 'email can`t be blank'
+
+-------------------------------------------------------------------------
+SignUp test cases:
+1. Register with valid email/username/password. Steps:
+- go to registration url
+- enter valid username
+- enter valid email
+- enter valid password
+- press "Signup" button
+Expected result:
+User loged in. Username displayed in the header
+
+2. Register with emapty email. Steps:
+- go to registration url
+- enter valid username
+- enter empty email
+- enter valid password
+- press "Signup" button
+Expected result:
+Error message contains 'email can`t be blank'
+
+-------------------------------------------------------------------
+Settings test cases:
+1. Update user settings with valid data. Steps:
+- login as valid user
+- go to settings url
+- update username with valid data
+- update user`s image link with valid data
+- update user`s bio with valid data
+- press "Update" button
+Expected result:
+All changes were save and displayed
+
+2. Update user settings with invalid data. Steps:
+- login as valid user
+- go to settings url
+- update username with invalid valid data (emty username)
+- update user`s image link with valid data
+- update user`s bio with valid data
+- press "Update" button
+Expected result:
+Error appeared
+
+--------------------------------------------------------------------
+Article test cases:
+1. Create article by valid user. Steps:
+- login as valid user
+- go to article url
+- enter article title 'Test article'
+- enter about article info 'Test article'
+- enter body of article 'Test article'
+- press "Publish" button
+Expected result:
+New acticle displayed
+
+2. Create article with tags by valid user. Steps:
+- login as valid user
+- go to article url
+- enter article title 'Test article'
+- enter about article info 'Test article'
+- enter body of article 'Test article'
+- enter tag 'test' and press 'Enter'
+- enter tag 'newtest' and press 'Enter'
+- press "Publish" button
+Expected result:
+New acticle displayed. Article has two tags
+
+3. Edit article by valid user. Steps:
+- login as valid user
+- go to article url
+- create and publish new article
+- go to edit article url
+- update article title 'QA Test article'
+- update about article info 'QA Test article'
+- update body of article 'QA Test article'
+- press "Publish" button
+Expected result:
+All changes were save and displayed
+
+4. Delete article by valid user. Steps:
+- login as valid user
+- go to article url
+- create and publish new article
+- try to delete this article
+Expected result:
+Article was deleted
+
+5. Delete article by loged out user. Steps:
+- login as valid user
+- go to article url
+- create and publish new article
+- log out
+- go to article url
+- try to delete this article
+Expected result:
+Error message appeared
+
+--------------------------------
+Comment test cases:
+1. Add comment for article by valid user. Steps:
+- login as valid user
+- create and publish new article
+- enter new comment to this atricle
+- press "Publish" button
+Expected result:
+New comment for acticle is displayed
+

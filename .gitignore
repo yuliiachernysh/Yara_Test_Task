@@ -1,3 +1,4 @@
 bin-debug/
 bin-release/
 /node_modules
+/cypress/reports

@@ -6,7 +6,7 @@
 
 ## How to run
 - run command "npm run cy:open:web"
-- run command "npm run cy:run:web" to see test run report
+- run command "npm run cy:run:web" to see test run report (report page will be generated on report folder)
 
 ## Test infra
 - All tests located in the forder cypress/e2e and separated due to bissness logic.

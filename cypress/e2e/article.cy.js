@@ -11,18 +11,22 @@ describe('Article', () => {
     });
 
     it('create a new article', () => {
+        //arrange
         editActiclePage.open();
 
         editActiclePage.enterTitle('My article title');
         editActiclePage.enterAboutField('test filed');
         editActiclePage.enterArticleBody(`Article body ${testLink}`);
         
+        //act
         editActiclePage.clickPublishArticleButton();
         
+        //assert
         editActiclePage.checkThatArticleHasTitle('My article title');
     });
 
     it('add tags to article', () => {
+        //arrange
         editActiclePage.open();
 
         editActiclePage.enterTitle('My article title');
@@ -35,17 +39,21 @@ describe('Article', () => {
         editActiclePage.checkArticleTag();
         editActiclePage.checkThatAddedTagContainsValue('newtest',2);
         
+        //act
         editActiclePage.clickPublishArticleButton();
         
+        //assert
         editActiclePage.checkThatArticleHasTitle('My article title');
     });
 
     it('check article page by logged out user', function () {
+        //arrange (precondition was done via api call)
         cy.createArticle().then((link) => {
             articleDetailsPage.clearBrowserData();
             articleDetailsPage.open(link);
         });
 
+        //assert
         articleDetailsPage.checkThatTitleVisible();
         articleDetailsPage.checkThatActicleBunnerVisible();
         articleDetailsPage.checkThatActicleAuthorVisible;
@@ -60,6 +68,7 @@ describe('Article', () => {
     });
 
     it('edit an article positive test', () => {
+        //arrange (precondition was done via api call)
         cy.createArticle().then((link) => {
             editActiclePage.open(link)
         });
@@ -70,8 +79,10 @@ describe('Article', () => {
         editActiclePage.checkThatAboutFieldHasValue(testLink);
         editActiclePage.enterBodyField(`Test can edit an article. ${testLink}`);   
         
+        //act
         editActiclePage.clickPublishButton();
         
+        //asert
         cy.url().should('contain', '/article/QA-article-test')
         articleDetailsPage.checkThatTitleVisible();
         articleDetailsPage.checkThatArticleBodyVisible();
@@ -79,6 +90,7 @@ describe('Article', () => {
     });
 
     it('delete an article positive test', () => {
+        //arrange
         cy.intercept('DELETE', '/api/articles/**').as('deleteRequest')
         cy.createArticle().then((link) => {
             articleDetailsPage.open(link);
@@ -86,8 +98,10 @@ describe('Article', () => {
 
         articleDetailsPage.checkThatTitleVisible();
         
+        //act
         articleDetailsPage.clickDeleteArticleButton();
         
+        //assert
         cy.wait('@deleteRequest')
         cy.url().should('eq', `${Cypress.config('baseUrl')}/`)
     });

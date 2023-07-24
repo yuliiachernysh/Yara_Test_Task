@@ -8,12 +8,16 @@ describe('Comment', () => {
     });
 
     it('edit an article positive test', () => {
+        //arrange (precondition was done via api call)
         cy.createArticle().then((link) => {
         articleDetailsPage.open(link)
         });
 
+    //act    
     articleDetailsPage.enterComment('test');
     articleDetailsPage.clickPublishCommentButton();
+
+    //assert
     articleDetailsPage.checkThatCommentHasValue('test');    
     });
 });
